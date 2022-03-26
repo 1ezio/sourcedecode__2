@@ -97,7 +97,7 @@ public class OrdersList extends AppCompatActivity {
                                         //Toast.makeText(OrdersList.this, str, Toast.LENGTH_SHORT).show();
                                         try{
                                             productMap.put(arr1[0].substring( 1,arr1[0].length() - 1 )
-                                                    , arr1[1].substring( 1,arr1[1].length() - 1 ));
+                                                    , arr1[1]);
                                         }catch (Exception e ){
                                             //map.put(arr1[0], "NA");
                                         }
@@ -113,8 +113,7 @@ public class OrdersList extends AppCompatActivity {
 
 
                                 }
-                                ordersAdapter adapter = new ordersAdapter(arrayList);
-                                //recyclerView.setHasFixedSize(true);
+                                ordersAdapter adapter = new ordersAdapter( getApplicationContext(),arrayList);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(OrdersList.this));
                                 recyclerView.setAdapter(adapter);
 

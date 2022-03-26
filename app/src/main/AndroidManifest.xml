@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShipRocket">
         <activity
+            android:name=".DashboardItems.orders.seeMoreActivity"
+            android:exported="true" />
+        <activity
             android:name=".DashboardItems.orders.OrdersList"
             android:exported="true" />
         <activity
