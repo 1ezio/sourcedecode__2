@@ -1,6 +1,7 @@
 package com.naman.shiprocket;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.tabs.TabLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +28,9 @@ import okhttp3.Response;
 
 public class loginActivity extends AppCompatActivity {
 
+    TabLayout tabLayout ;
+    ViewPager viewPager ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +38,27 @@ public class loginActivity extends AppCompatActivity {
         //TextView textView = (TextView)findViewById(R.id.dummy);
         EditText userName = (EditText) findViewById(R.id.userName);
         EditText password = (EditText) findViewById(R.id.password);
-        Button btn = (Button) findViewById(R.id.submit);
+        Button btn = (Button) findViewById(R.id.loginbtn);
+
+
+        userName.setTranslationX(800);
+        password.setTranslationX(800);
+        btn.setTranslationX(800);
+
+        userName.setAlpha(0);
+        password.setAlpha(0);
+        btn.setAlpha(0);
+
+        userName.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        password.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        btn.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+
+//        tabLayout= findViewById(R.id.tablayout);
+//        viewPager = findViewById(R.id.viewpager);
+//
+//        final loginAdapter adapter = new loginAdapter(getSupportFragmentManager(),this,1);
+//        viewPager.setAdapter(adapter);
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

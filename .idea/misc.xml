@@ -4,12 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/border.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/buttonbg.xml" value="0.187890625" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/ed_bg.xml" value="0.187890625" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/ed_bg2.xml" value="0.187890625" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
-        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_login.xml" value="0.176" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_orders_list.xml" value="0.2359375" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_see_more.xml" value="0.25" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/loginfragment.xml" value="0.17578125" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/mapmarker.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/orderitemsrecyclerview.xml" value="0.4" />
       </map>
