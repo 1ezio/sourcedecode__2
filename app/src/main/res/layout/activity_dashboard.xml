@@ -10,6 +10,17 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameInDashboard"
+        android:layout_margin="20dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -34,6 +45,8 @@
                 android:layout_height="150dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/ordersCard"
                 android:foreground="?android:selectableItemBackground"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="0dp">

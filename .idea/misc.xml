@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/border.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_orders_list.xml" value="0.2359375" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/orderitemsrecyclerview.xml" value="0.4" />
       </map>
     </option>
   </component>

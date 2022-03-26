@@ -73,15 +73,15 @@ public class loginActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                final String yourResponse = response.body().string();
+                final String jsonResponse = response.body().string();
                 if(response.isSuccessful()){
 
                     loginActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(loginActivity.this, "Ok: "+yourResponse,Toast.LENGTH_SHORT).show();
-                            //textView.setText(yourResponse);
+                            Toast.makeText(loginActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(loginActivity.this, Dashboard.class);
+                            intent.putExtra("jsonResponse", jsonResponse);
                             startActivity(intent);
                         }
                     });
@@ -89,7 +89,7 @@ public class loginActivity extends AppCompatActivity {
                     loginActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(loginActivity.this, "Ok: "+yourResponse,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
