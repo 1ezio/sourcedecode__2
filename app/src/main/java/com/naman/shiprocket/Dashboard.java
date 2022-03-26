@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.naman.shiprocket.DashboardItems.orders.OrdersList;
+import com.naman.shiprocket.TrackingWithMap.Tracking;
 
 import java.util.Map;
 import java.util.Objects;
@@ -23,7 +24,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         Bundle bundle = getIntent().getExtras();
         String jsonResponse = bundle.getString("jsonResponse");
-        Toast.makeText(this, jsonResponse, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, jsonResponse, Toast.LENGTH_SHORT).show();
 
         Map jsonValueMap = new Gson().fromJson(jsonResponse, Map.class);
         TextView nameInDashboard = (TextView) findViewById(R.id.nameInDashboard);
@@ -40,5 +41,17 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        CardView trackingCard = (CardView)  findViewById(R.id.trackingCardId);
+        trackingCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, Tracking.class);
+                intent.putExtra("token", token);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }

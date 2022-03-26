@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=F4:F6:7C:09:1C:DE:B0:8F:D9:DD:80:A3:F4:4A:E7:14:55:A3:F0:B8%3Bcom.naman.shiprocket.TrackingWithMap
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.naman.shiprocket.TrackingWithMap
+
+    SHA-1 certificate fingerprint:
+    F4:F6:7C:09:1C:DE:B0:8F:D9:DD:80:A3:F4:4A:E7:14:55:A3:F0:B8
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDkx6BX474TncCkyH7f8FBXeBVMWkH4QtI</string>
+</resources>
