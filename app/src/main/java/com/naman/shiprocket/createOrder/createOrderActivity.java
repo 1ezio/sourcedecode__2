@@ -35,7 +35,7 @@ public class createOrderActivity extends AppCompatActivity {
 
 
         EditText cName, cProductName, cPhone,
-                cAddr1, cAddr2, cCity, cState, cCountry, cPin;
+                cAddr1, cAddr2, cCity, cState, cCountry, cPin ,cId;
 
         cName = findViewById(R.id.cname);
         cProductName = findViewById(R.id.cpname);
@@ -46,8 +46,10 @@ public class createOrderActivity extends AppCompatActivity {
         cState = findViewById(R.id.cstate);
         cCountry = findViewById(R.id.ccountry);
         cPin = findViewById(R.id.cpin);
+        cId = findViewById(R.id.ccid);
 
         Button btn = findViewById(R.id.btnId);
+        //cId.setTranslationY(800);
         cName.setTranslationX(800);
         cProductName.setTranslationX(-800);
         cPhone.setTranslationX(800);
@@ -61,6 +63,7 @@ public class createOrderActivity extends AppCompatActivity {
         btn.setTranslationX(-800);
 
 
+        //cId.setAlpha(0);
         cName.setAlpha(0);
         cProductName.setAlpha(0);
         cPhone.setAlpha(0);
@@ -73,6 +76,7 @@ public class createOrderActivity extends AppCompatActivity {
 
         btn.setAlpha(0);
 
+        //cId.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         cName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         cProductName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         cPhone.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
@@ -102,14 +106,14 @@ public class createOrderActivity extends AppCompatActivity {
                     String sstate = cState.getText().toString();
                     String scountry = cCountry.getText().toString();
                     String spin = cPin.getText().toString();
-
+                    String sid = cId.getText().toString();
 
 
                 OkHttpClient client = new OkHttpClient().newBuilder()
                         .build();
 
                 MediaType mediaType = MediaType.parse("application/json");
-                RequestBody body = RequestBody.create(mediaType, "{\n  \"order_id\": \"224-447\"" +
+                RequestBody body = RequestBody.create(mediaType, "{\n  \"order_id\": \""+sid+"\"" +
                         ",\n  \"order_date\": \"2022-07-24 11:11\",\n  \"pickup_location\": \"Jammu\"," +
                         "\n  \"channel_id\": \"\",\n  \"comment\": \"Reseller: M/s Goku\"," +
                         "\n  \"billing_customer_name\": \"" + sName+ "\",\n  \"billing_last_name\": \"Uzumaki\"" +
@@ -146,6 +150,7 @@ public class createOrderActivity extends AppCompatActivity {
                             createOrderActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+                                    Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
                                     Toast.makeText(createOrderActivity.this, "Order Created", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(createOrderActivity.this, createOrderActivity.class));
                                 }

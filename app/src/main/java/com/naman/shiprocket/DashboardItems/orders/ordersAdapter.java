@@ -58,7 +58,8 @@ public class ordersAdapter extends RecyclerView.Adapter<ordersAdapter.ViewHolder
                 intent.putExtra("values", new String[]{ordersDAOS.get(i).getPaymentStatus(),
 
                         ordersDAOS.get(i).getPaymentMethod(),ordersDAOS.get(i).getCreatedAt(),
-                        ordersDAOS.get(i).getProductId(),ordersDAOS.get(i).getUpdatedAt()
+                        ordersDAOS.get(i).getProductId(),ordersDAOS.get(i).getUpdatedAt(),
+                        ordersDAOS.get(i).getAddress()
                 });
 
                 intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
@@ -85,7 +86,7 @@ public class ordersAdapter extends RecyclerView.Adapter<ordersAdapter.ViewHolder
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView bname, bemail, bphone, bproductName,bid ,seeMore,btotal;
+        public TextView bname, bemail, bphone, bproductName,bid ,seeMore,btotal,bAddress;
         public RelativeLayout relativeLayout;
         public ViewHolder(View itemView) {
             super(itemView);

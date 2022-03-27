@@ -4,7 +4,7 @@ public class ordersDAO {
 
         String name, phone, paymentStatus, total,
                 paymentMethod, createdAt,email,
-                updatedAt, productId, productName,channel, id;
+                updatedAt, productId, productName,channel, id ,address;
 
     public String getId() {
         return id;
@@ -86,6 +86,14 @@ public class ordersDAO {
         return productId;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public void setProductId(String productId) {
         this.productId = productId;
     }
@@ -106,9 +114,10 @@ public class ordersDAO {
         this.channel = channel;
     }
 
-    public ordersDAO(String name,String id, String email,String phone, String paymentStatus, String total, String paymentMethod, String createdAt, String updatedAt, String productId, String productName, String channel) {
+    public ordersDAO(String name,String id, String email,String phone, String paymentStatus, String total, String paymentMethod, String createdAt, String updatedAt, String productId, String productName, String channel, String address) {
         this.name = name;
         this.email = email;
+        this.address= address;
         this.id = id;
         this.phone = phone;
         this.paymentStatus = paymentStatus;

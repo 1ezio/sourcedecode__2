@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,9 +33,56 @@ public class Dashboard extends AppCompatActivity {
         TextView nameInDashboard = (TextView) findViewById(R.id.nameInDashboard);
         String name =jsonValueMap.get("first_name")+ " "+ jsonValueMap.get("last_name");
         nameInDashboard.setText(name);
+
+        nameInDashboard.setTranslationY(1000);
+        nameInDashboard.setAlpha(0);
+        nameInDashboard.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+
         String token = Objects.requireNonNull(jsonValueMap.get("token")).toString();
 
+        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
+        layout.setTranslationY(1000);
+        layout.setAlpha(0);
+        layout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+        LinearLayout layout3 = (LinearLayout) findViewById(R.id.linearLayout3);
+        layout3.setTranslationY(1000);
+        layout3.setAlpha(0);
+        layout3.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+
         CardView ordersCard = (CardView)  findViewById(R.id.ordersCard);
+        CardView trackingCard = (CardView)  findViewById(R.id.trackingCardId);
+        CardView graphCard = (CardView)  findViewById(R.id.graphID);
+        CardView trackOrder = (CardView)  findViewById(R.id.trackingOrderId);
+        CardView createOrder = (CardView)  findViewById(R.id.creatOrderCard);
+
+
+        ordersCard.setTranslationY(1000);
+        ordersCard.setAlpha(0);
+        ordersCard.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+
+        trackingCard.setTranslationY(1000);
+        trackingCard.setAlpha(0);
+        trackingCard.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+        graphCard.setTranslationY(1000);
+        graphCard.setAlpha(0);
+        graphCard.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+        trackOrder.setTranslationY(1000);
+        trackOrder.setAlpha(0);
+        trackOrder.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+        createOrder.setTranslationY(1000);
+        createOrder.setAlpha(0);
+        createOrder.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+
+
+        
         ordersCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +92,6 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        CardView trackingCard = (CardView)  findViewById(R.id.trackingCardId);
         trackingCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +101,6 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        CardView graphCard = (CardView)  findViewById(R.id.graphID);
         graphCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +110,6 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        CardView trackOrder = (CardView)  findViewById(R.id.trackingOrderId);
         trackOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +119,6 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        CardView createOrder = (CardView)  findViewById(R.id.creatOrderCard);
         createOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

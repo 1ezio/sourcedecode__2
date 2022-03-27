@@ -2,6 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:padding="5dp"
+
     android:layout_height="wrap_content"
     android:background="@drawable/border">
 
@@ -14,10 +17,13 @@
         android:layout_marginBottom="2dp"
         android:gravity="center_vertical"
         android:text="Buyer ID: "
+        android:textColor="@color/black"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/bid"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -36,6 +42,7 @@
         android:layout_below="@id/textView6"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
+        android:textColor="@color/black"
         android:layout_marginBottom="2dp"
         android:gravity="center_vertical"
         android:text="Buyer Name: "
@@ -43,13 +50,15 @@
 
     <TextView
         android:id="@+id/bname"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/bid"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
-        android:layout_below="@+id/bid"
         android:layout_toRightOf="@+id/textView"
         android:gravity="center_vertical"
         android:text="Buyer Name"
@@ -62,12 +71,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
         android:text="Buyer Email :" />
 
     <TextView
         android:id="@+id/bemail"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bname"
@@ -84,11 +96,15 @@
         android:layout_below="@+id/textView3"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
+
+        android:textColor="@color/black"
         android:layout_marginBottom="2dp"
         android:text="Buyer Phone :" />
 
     <TextView
         android:id="@+id/btotal"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bproductName"
@@ -105,11 +121,14 @@
         android:layout_below="@+id/bproductName"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
+        android:textColor="@color/black"
         android:layout_marginBottom="2dp"
         android:text="Total Price: Rs. " />
 
     <TextView
         android:id="@+id/bphone"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bemail"
@@ -126,11 +145,14 @@
         android:layout_below="@+id/textView4"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
+        android:textColor="@color/black"
         android:layout_marginBottom="2dp"
         android:text="Product Name:" />
 
     <TextView
         android:id="@+id/bproductName"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bphone"
@@ -143,21 +165,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/btotal"
-        android:gravity="end"
-        android:layout_height="wrap_content">
+        android:gravity="end">
+
         <TextView
             android:id="@+id/seeMoreId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bproductName"
+            android:layout_margin="2dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp"
-            android:layout_margin="2dp"
             android:clickable="true"
-            android:textColor="@color/blue"
-            android:text="see more >>" />
+            android:text="see more >>"
+            android:textColor="#FFE4960B" />
 
     </LinearLayout>
 

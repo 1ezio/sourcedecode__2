@@ -17,7 +17,7 @@ public class seeMoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_more);
 
-        TextView bpaymentStatus, bpaymentmethod, bcreatedAt, bUpdatedAt, bproductId;
+        TextView bpaymentStatus, bpaymentmethod, bcreatedAt, bUpdatedAt, bproductId , baddress;
         Button btn ;
 
         Intent intent = getIntent();
@@ -27,6 +27,7 @@ public class seeMoreActivity extends AppCompatActivity {
         String createdAt = values[2];;
         String productId =values[3];;
         String updatedAt = values[4];;
+        String address = values[5];;
 
         bpaymentmethod=(TextView) findViewById(R.id.bPaymentMethod);
         bpaymentmethod.setText(payementMethod);
@@ -42,6 +43,9 @@ public class seeMoreActivity extends AppCompatActivity {
 
         bproductId=(TextView) findViewById(R.id.bProductId);
         bproductId.setText(productId);
+
+        baddress=(TextView) findViewById(R.id.bCustomerAddress);
+        baddress.setText(address);
 
         btn = findViewById(R.id.okBtn);
         btn.setOnClickListener(new View.OnClickListener() {
