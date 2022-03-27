@@ -102,8 +102,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                     cusName = arr.getJSONObject(i).getString("customer_name");
                                     cusPhn = arr.getJSONObject(i).getString("customer_phone");
                                     cuspayMethod = arr.getJSONObject(i).getString("payment_method");
-                                        cusAddress = arr.getJSONObject(i).getString("customer_address")+ " "+
-                                                arr.getJSONObject(i).getString("customer_city") +
+                                        cusAddress = arr.getJSONObject(i).getString("customer_city") +
                                                 " "+ arr.getJSONObject(i).getString("customer_state") ;
                                         mapLists.add(cusAddress);
                                     String total = arr.getJSONObject(i).getString("total");
@@ -140,8 +139,10 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                             e.printStackTrace();
                                         }
 
-                                        Address address = addressList.get(0);
-
+                                        Address address = (addressList.size()>0)? addressList.get(0): null;
+                                        if (address==null){
+                                            continue;
+                                        }
                                         //onMapReady(mMap);
                                         latLng = new LatLng(address.getLatitude(), address.getLongitude());
                                         latlongList.add(latLng);

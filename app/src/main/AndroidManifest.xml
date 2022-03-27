@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShipRocket">
         <activity
+            android:name=".createOrder.createOrderActivity"
+            android:exported="true" />
+        <activity
             android:name=".graphs.graphActivity"
             android:exported="true" />
         <activity

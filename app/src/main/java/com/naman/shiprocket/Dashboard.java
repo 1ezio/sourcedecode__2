@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.naman.shiprocket.DashboardItems.orders.OrdersList;
 import com.naman.shiprocket.TrackingWithMap.Tracking;
+import com.naman.shiprocket.createOrder.createOrderActivity;
 import com.naman.shiprocket.graphs.graphActivity;
 import com.naman.shiprocket.trackOrders.trackOrdersMain;
 
@@ -69,6 +70,16 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Dashboard.this, trackOrdersMain.class);
+                intent.putExtra("token", token);
+                startActivity(intent);
+            }
+        });
+
+        CardView createOrder = (CardView)  findViewById(R.id.creatOrderCard);
+        createOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, createOrderActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
             }

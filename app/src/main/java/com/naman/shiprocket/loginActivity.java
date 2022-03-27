@@ -35,7 +35,6 @@ public class loginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //TextView textView = (TextView)findViewById(R.id.dummy);
         EditText userName = (EditText) findViewById(R.id.userName);
         EditText password = (EditText) findViewById(R.id.password);
         Button btn = (Button) findViewById(R.id.loginbtn);
@@ -52,13 +51,6 @@ public class loginActivity extends AppCompatActivity {
         userName.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
         password.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
         btn.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
-
-//        tabLayout= findViewById(R.id.tablayout);
-//        viewPager = findViewById(R.id.viewpager);
-//
-//        final loginAdapter adapter = new loginAdapter(getSupportFragmentManager(),this,1);
-//        viewPager.setAdapter(adapter);
-//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

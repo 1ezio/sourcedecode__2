@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/backgroundColor"
+    android:layout_height="match_parent"
+    tools:context=".createOrder.createOrderActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Enter Details"
+           android:textSize="20sp"
+           android:textStyle="bold"
+           android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/cname"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer name :"
+            android:background="@drawable/ed_bg2"/>
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/cpname"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Product Name "
+            android:background="@drawable/ed_bg2"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/cphn"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer Phone"
+            android:background="@drawable/ed_bg2"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/caddr1"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer Address 1"
+            android:background="@drawable/ed_bg2"/>
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/caddr2"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer Address 2 "
+            android:background="@drawable/ed_bg2"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/ccity"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer City"
+            android:background="@drawable/ed_bg2"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/cstate"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer State"
+            android:background="@drawable/ed_bg2"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/ccountry"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer Country"
+            android:background="@drawable/ed_bg2"/>
+
+        <EditText
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:id="@+id/cpin"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:hint="Customer PINCODE"
+            android:background="@drawable/ed_bg2"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/buttonbg"
+            android:id="@+id/btnId"
+            android:layout_marginBottom="10dp"
+            android:text="Submit"/>
+
+
+    </LinearLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
