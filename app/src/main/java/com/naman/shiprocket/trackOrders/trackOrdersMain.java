@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.naman.shiprocket.DashboardItems.orders.OrdersList;
 import com.naman.shiprocket.DashboardItems.orders.ordersAdapter;
 import com.naman.shiprocket.DashboardItems.orders.ordersDAO;
+import com.naman.shiprocket.ProgressDialogFragment;
 import com.naman.shiprocket.R;
 
 import org.json.JSONArray;
@@ -77,6 +78,8 @@ public class trackOrdersMain extends AppCompatActivity {
     public void findOrder(String string){
         Bundle bundle = getIntent().getExtras();
         String token = bundle.getString("token");
+        final ProgressDialogFragment progress=new ProgressDialogFragment(this);
+        progress.show();
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
@@ -175,7 +178,7 @@ public class trackOrdersMain extends AppCompatActivity {
                                 tExecutiveContact.setText(shipmentMap.get("delivery_executive_number"));
 
                                 
-                                
+                                progress.dismiss();
                                 
                                 
 //                                for (int i = 0; i < arr.length(); i++)
@@ -201,7 +204,7 @@ public class trackOrdersMain extends AppCompatActivity {
                 }
             }
         });
-
+        progress.dismiss();
 
 
     }

@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.naman.shiprocket.ProgressDialogFragment;
 import com.naman.shiprocket.R;
 
 import org.json.JSONArray;
@@ -38,7 +39,8 @@ public class graphActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
-
+        final ProgressDialogFragment progress=new ProgressDialogFragment(this);
+        progress.show();
         Bundle bundle = getIntent().getExtras();
         String token = bundle.getString("token");
         OkHttpClient client = new OkHttpClient().newBuilder()
@@ -51,6 +53,7 @@ public class graphActivity extends AppCompatActivity {
                 .build();
         HashMap<String, Integer> map = new HashMap<>();
                 client.newCall(request).enqueue(new Callback() {
+
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -82,8 +85,6 @@ public class graphActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
 
-                            Toast.makeText(graphActivity.this, String.valueOf(map), Toast.LENGTH_SHORT).show();
-
                             PieChart pieChart = findViewById(R.id.piechart);
                             ArrayList<Entry> noOfValues = new ArrayList();
 
@@ -101,7 +102,7 @@ public class graphActivity extends AppCompatActivity {
                             //pieChart.setCenterTextSize(30);
                             pieChart.setData(data);
                             Legend l = pieChart.getLegend();
-
+                            progress.dismiss();
                             dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                             pieChart.animateXY(5000, 5000);
 

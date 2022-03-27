@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.naman.shiprocket.ProgressDialogFragment;
 import com.naman.shiprocket.R;
 
 import org.json.JSONArray;
@@ -37,8 +38,8 @@ public class OrdersList extends AppCompatActivity {
         setContentView(R.layout.activity_orders_list);
         Bundle bundle = getIntent().getExtras();
         String token = bundle.getString("token");
-        //TextView text = (TextView) findViewById(R.id.dummytext);
-
+        final ProgressDialogFragment progress=new ProgressDialogFragment(this);
+        progress.show();
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
@@ -83,32 +84,21 @@ public class OrdersList extends AppCompatActivity {
                                     String cusPayStatus = arr.getJSONObject(i).getString("payment_status");
                                     String cusCreated = arr.getJSONObject(i).getString("created_at");
                                     String cusUpdated = arr.getJSONObject(i).getString("updated_at");
-
-
-
-                                    Toast.makeText(OrdersList.this, cusName, Toast.LENGTH_SHORT).show();
                                     productDetails = productDetails.substring( 2,productDetails.length() - 2 );
                                     String[] list = productDetails.split(",");
 
                                     for(int j = 0;j< list.length;j++){
                                         String str = list[j];
                                         String[] arr1 = str.split(":");
-                                        //Log.d("TAG", String.valueOf(arr1.length));
-                                        //Toast.makeText(OrdersList.this, str, Toast.LENGTH_SHORT).show();
                                         try{
                                             productMap.put(arr1[0].substring( 1,arr1[0].length() - 1 )
                                                     , arr1[1]);
                                         }catch (Exception e ){
-                                            //map.put(arr1[0], "NA");
                                         }
-
-
                                     }
-                                    //text.setText(String.valueOf(productMap));
                                     arrayList.add(new ordersDAO(cusName, cusID,cusEmail, cusPhn,cusPayStatus
                                             ,productMap.get("price"),cuspayMethod,cusCreated,cusUpdated,
                                             productMap.get("id"),productMap.get("name"),"1"));
-                                    //Toast.makeText(OrdersList.this, String.valueOf(productMap.get("price")), Toast.LENGTH_LONG).show();
 
 
 
@@ -116,7 +106,7 @@ public class OrdersList extends AppCompatActivity {
                                 ordersAdapter adapter = new ordersAdapter( getApplicationContext(),arrayList);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(OrdersList.this));
                                 recyclerView.setAdapter(adapter);
-
+                                progress.dismiss();
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

@@ -28,9 +28,6 @@ import okhttp3.Response;
 
 public class loginActivity extends AppCompatActivity {
 
-    TabLayout tabLayout ;
-    ViewPager viewPager ;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,21 +45,25 @@ public class loginActivity extends AppCompatActivity {
         password.setAlpha(0);
         btn.setAlpha(0);
 
-        userName.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
-        password.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
-        btn.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        userName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+        password.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+        btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String userNameString = userName.getText().toString();
                 String passwordString = password.getText().toString();
+
                 getLogin(userNameString,passwordString);
+
             }
         });
     }
 
     private void getLogin(String username, String password ){
+        final ProgressDialogFragment lottie=new ProgressDialogFragment(this);
+        lottie.show();
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         JSONObject jsonObject = new JSONObject();
@@ -97,9 +98,10 @@ public class loginActivity extends AppCompatActivity {
                     loginActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(loginActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
+                           //Toast.makeText(loginActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(loginActivity.this, Dashboard.class);
                             intent.putExtra("jsonResponse", jsonResponse);
+                            lottie.dismiss();
                             startActivity(intent);
                         }
                     });
