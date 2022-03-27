@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.naman.shiprocket.DashboardItems.orders.OrdersList;
 import com.naman.shiprocket.TrackingWithMap.Tracking;
+import com.naman.shiprocket.graphs.graphActivity;
 
 import java.util.Map;
 import java.util.Objects;
@@ -47,6 +48,16 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Dashboard.this, Tracking.class);
+                intent.putExtra("token", token);
+                startActivity(intent);
+            }
+        });
+
+        CardView graphCard = (CardView)  findViewById(R.id.graphID);
+        graphCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, graphActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
             }
