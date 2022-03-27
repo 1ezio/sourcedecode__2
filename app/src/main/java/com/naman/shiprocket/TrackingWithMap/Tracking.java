@@ -102,10 +102,10 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                     cusName = arr.getJSONObject(i).getString("customer_name");
                                     cusPhn = arr.getJSONObject(i).getString("customer_phone");
                                     cuspayMethod = arr.getJSONObject(i).getString("payment_method");
-                                    cusAddress = arr.getJSONObject(i).getString("customer_address")+ " "+
-                                            arr.getJSONObject(i).getString("customer_city") +
-                                            " "+ arr.getJSONObject(i).getString("customer_state") ;
-                                    mapLists.add(cusAddress);
+                                        cusAddress = arr.getJSONObject(i).getString("customer_address")+ " "+
+                                                arr.getJSONObject(i).getString("customer_city") +
+                                                " "+ arr.getJSONObject(i).getString("customer_state") ;
+                                        mapLists.add(cusAddress);
                                     String total = arr.getJSONObject(i).getString("total");
                                     //Toast.makeText(Tracking.this, mapLists.toString(), Toast.LENGTH_SHORT).show();
                                     productDetails = productDetails.substring( 2,productDetails.length() - 2 );

@@ -26,6 +26,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonbg"
+        android:id="@+id/findbtn"
+        android:text="Find"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderId" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,11 +45,12 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderId">
+        app:layout_constraintTop_toBottomOf="@+id/findbtn">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:orientation="horizontal">
 
             <TextView
@@ -46,13 +59,109 @@
                 android:text="Customer Name : " />
 
             <TextView
+                android:id="@+id/tname"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Customer Name : " />
+                android:text="Name : " />
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Customer Contact : " />
+
+            <TextView
+                android:id="@+id/tphn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="phn : " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Delivery Address : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/taddress"
+                android:layout_height="match_parent"
+                android:text="Address " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="3dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Product Name : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/tpname"
+                android:text="product Name : " />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Pickup Boy Name : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tpickname"
+                android:layout_height="match_parent"
+                android:text="Pickup Name : " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="3dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Pickup Boy Contact : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tpickcontact"
+                android:layout_height="match_parent"
+                android:text="Pickup Contact : " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -60,31 +169,91 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Customer Name : " />
+                android:text="Delivery Date : " />
 
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/tdDate"
                 android:layout_height="match_parent"
-                android:text="Customer Name : " />
+                android:text="Date : " />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Customer Name : " />
+                android:text="Delivery Executive Name : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/texename"
+                android:layout_height="match_parent"
+                android:text="Delivery Executive Name" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Customer Name : " />
+                android:text="Delivery Executive Contact : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/ytexecontact"
+                android:text="Delivery Executive Contact " />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Status : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/tstatus"
+                android:text="Status : " />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="3dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Total : " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/ttotal"
+                android:text="Total : " />
+
+        </LinearLayout>
+
 
 
     </LinearLayout>
