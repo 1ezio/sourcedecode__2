@@ -55,12 +55,15 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Customer Name : " />
 
             <TextView
                 android:id="@+id/tname"
                 android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Name : " />
 
@@ -74,12 +77,15 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Customer Contact : " />
 
             <TextView
                 android:id="@+id/tphn"
                 android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="phn : " />
 
@@ -93,12 +99,15 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Delivery Address : " />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/taddress"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Address " />
 
@@ -112,6 +121,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Product Name : " />
 
@@ -119,6 +129,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/tpname"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:text="product Name : " />
 
         </LinearLayout>
@@ -130,6 +142,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Pickup Boy Name : " />
 
@@ -137,6 +150,8 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/tpickname"
                 android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:text="Pickup Name : " />
 
         </LinearLayout>
@@ -149,6 +164,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Pickup Boy Contact : " />
 
@@ -156,6 +172,8 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/tpickcontact"
                 android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:text="Pickup Contact : " />
 
         </LinearLayout>
@@ -168,12 +186,16 @@
 
             <TextView
                 android:layout_width="wrap_content"
+
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Delivery Date : " />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/tdDate"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Date : " />
 
@@ -188,11 +210,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@color/black"
                 android:text="Delivery Executive Name : " />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/texename"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Delivery Executive Name" />
 
@@ -207,11 +232,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@color/black"
                 android:text="Delivery Executive Contact : " />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:id="@+id/ytexecontact"
                 android:text="Delivery Executive Contact " />
 
@@ -225,11 +253,14 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:text="Status : " />
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:id="@+id/tstatus"
                 android:text="Status : " />
@@ -244,10 +275,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@color/black"
                 android:text="Total : " />
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_height="match_parent"
                 android:id="@+id/ttotal"
                 android:text="Total : " />

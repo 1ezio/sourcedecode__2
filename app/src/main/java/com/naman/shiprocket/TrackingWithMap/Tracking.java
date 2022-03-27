@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.naman.shiprocket.DashboardItems.orders.OrdersList;
 import com.naman.shiprocket.DashboardItems.orders.ordersAdapter;
 import com.naman.shiprocket.DashboardItems.orders.ordersDAO;
+import com.naman.shiprocket.ProgressDialogFragment;
 import com.naman.shiprocket.R;
 import com.naman.shiprocket.databinding.ActivityTrackingBinding;
 
@@ -72,6 +73,8 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                 .addHeader("Authorization", "Bearer "+token)
                 .build();
         List<String> mapLists =new ArrayList<>() ;
+        final ProgressDialogFragment progress=new ProgressDialogFragment(this);
+        progress.show();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -81,7 +84,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String jsonResponse = response.body().string();
-                RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
                 if(response.isSuccessful()){
 
 
@@ -106,7 +109,6 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                                 " "+ arr.getJSONObject(i).getString("customer_state") ;
                                         mapLists.add(cusAddress);
                                     String total = arr.getJSONObject(i).getString("total");
-                                    //Toast.makeText(Tracking.this, mapLists.toString(), Toast.LENGTH_SHORT).show();
                                     productDetails = productDetails.substring( 2,productDetails.length() - 2 );
                                     String[] list = productDetails.split(",");
 
@@ -119,22 +121,18 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                         }catch (Exception e ){
                                             Toast.makeText(Tracking.this, "Error!!", Toast.LENGTH_SHORT).show();
                                         }
-
-
                                     }
                                     arrayList.add(new mapMarkerDAO(cusName, cusPhn,cuspayMethod,cusAddress,
                                             productMap.get("name"),total));
 
                                 }
                                 List<Address> addressList = null;
-                                Toast.makeText(Tracking.this, mapLists.toString(), Toast.LENGTH_SHORT).show();
                                 for(int i=0; i<mapLists.size();i++){
                                     String locationItems = mapLists.get(i);
                                     if(!locationItems.equals("")){
                                         Geocoder geocoder = new Geocoder(Tracking.this);
                                         try{
                                             addressList = geocoder.getFromLocationName(locationItems,1);
-                                            //Toast.makeText(Tracking.this, addressList.toString(), Toast.LENGTH_SHORT).show();
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }
@@ -143,7 +141,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                         if (address==null){
                                             continue;
                                         }
-                                        //onMapReady(mMap);
+
                                         latLng = new LatLng(address.getLatitude(), address.getLongitude());
                                         latlongList.add(latLng);
 
@@ -159,7 +157,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                 e.printStackTrace();
                             }
 
-
+                            progress.dismiss();
                         }
                     });
                 }else{
@@ -195,7 +193,6 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         LatLng latLng = null;
-        Toast.makeText(getApplicationContext(),latlongList.toString(), Toast.LENGTH_SHORT).show();
 
         Marker marker = null;
 
@@ -209,10 +206,6 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
             String total = arrayList.get(i).getCusTotal();
             String address = arrayList.get(i).getCusAddress();
             String cusProductName = arrayList.get(i).getCusProductName();
-
-
-
-            Toast.makeText(Tracking.this, name, Toast.LENGTH_SHORT).show();
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
 
             mMap.setInfoWindowAdapter(new customMarkerAdapter(Tracking.this));
@@ -226,5 +219,6 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
 
 
         }
+
     }
 }

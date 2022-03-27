@@ -3,36 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/backgroundColor"
     android:layout_height="match_parent"
     tools:context=".splashActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:background="#f1ebe0"
-        android:layout_height="match_parent" />
 
-    <ImageView
-        android:id="@+id/splashImage"
-        android:layout_width="250dp"
-        android:layout_height="300dp"
-        android:background="#f1ebe0"
-        android:layout_marginBottom="100dp"
-        android:layout_weight="1"
-        android:src="@drawable/splashimage"
-        app:layout_constraintBottom_toBottomOf="parent"
+<!--    <ImageView-->
+<!--        android:id="@+id/splashImage"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_marginTop="88dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:background="#f1ebe0"-->
+<!--        android:src="@drawable/splashimage"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.552"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="271dp"
+
+        android:layout_height="307dp"
+
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/splashfinal" />
 
     <TextView
+        android:id="@+id/animationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="ShipWale"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        android:layout_margin="20sp"
+        android:text="SHIPWALE"
+        android:textColor="@color/black"
+        android:fontFamily="@font/open_sans_condensed_bold"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/splashImage" />
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

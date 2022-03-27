@@ -27,11 +27,10 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         Bundle bundle = getIntent().getExtras();
         String jsonResponse = bundle.getString("jsonResponse");
-        //Toast.makeText(this, jsonResponse, Toast.LENGTH_SHORT).show();
 
         Map jsonValueMap = new Gson().fromJson(jsonResponse, Map.class);
         TextView nameInDashboard = (TextView) findViewById(R.id.nameInDashboard);
-        String name = "Welcome, "+jsonValueMap.get("first_name")+ " "+ jsonValueMap.get("last_name");
+        String name =jsonValueMap.get("first_name")+ " "+ jsonValueMap.get("last_name");
         nameInDashboard.setText(name);
         String token = Objects.requireNonNull(jsonValueMap.get("token")).toString();
 
