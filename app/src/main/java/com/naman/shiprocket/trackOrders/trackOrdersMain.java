@@ -161,7 +161,7 @@ public class trackOrdersMain extends AppCompatActivity {
                                         shipmentMap.put(arr1[0].substring( 1,arr1[0].length() - 1 )
                                                 , arr1[1]);
                                     }catch (Exception e ){
-                                        Toast.makeText(trackOrdersMain.this, "Error !!", Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(trackOrdersMain.this, "Error !!", Toast.LENGTH_SHORT).show();
                                     }
                                 }
 

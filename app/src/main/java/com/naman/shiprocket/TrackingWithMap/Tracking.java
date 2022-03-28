@@ -213,7 +213,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
             mMap.setInfoWindowAdapter(new customMarkerAdapter(Tracking.this));
             mMap.addMarker(new MarkerOptions().position(latLng).title("Buyer Name : "+name).snippet("Phone : " + phn+
 
-                    '\n' + "Pay Method :"+method+
+                    '\n' + "Pay Method :"+method
                     +'\n' + "Price :"+total+
                     '\n' + "Address : " +address+
                     '\n' + "Product : " + cusProductName

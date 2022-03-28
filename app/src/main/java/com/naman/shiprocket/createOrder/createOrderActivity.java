@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.naman.shiprocket.Dashboard;
+import com.naman.shiprocket.ProgressDialogFragment;
 import com.naman.shiprocket.R;
 import com.naman.shiprocket.loginActivity;
 
@@ -32,7 +34,7 @@ import okhttp3.Response;
 
 public class createOrderActivity extends AppCompatActivity {
 
-    String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +107,7 @@ public class createOrderActivity extends AppCompatActivity {
             }
         });
 
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,8 +115,7 @@ public class createOrderActivity extends AppCompatActivity {
                 try{
 
                     Bundle bundle = getIntent().getExtras();
-                    token = bundle.getString("token");
-
+                    String token = bundle.getString("token");
                     String sName = cName.getText().toString();
                     String spname = cProductName.getText().toString();
                     String sphone = cPhone.getText().toString();
@@ -167,7 +169,7 @@ public class createOrderActivity extends AppCompatActivity {
                             createOrderActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
                                     Toast.makeText(createOrderActivity.this, "Order Created", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(createOrderActivity.this, createOrderActivity.class));
                                 }
@@ -185,7 +187,7 @@ public class createOrderActivity extends AppCompatActivity {
 
 
                 }catch(Exception e){
-                    Toast.makeText(createOrderActivity.this, "Enter Valid Details", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(createOrderActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(createOrderActivity.this, createOrderActivity.class));
                 }
 
@@ -200,6 +202,8 @@ public class createOrderActivity extends AppCompatActivity {
     public void deleteOrder(String id){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
+        Bundle bundle = getIntent().getExtras();
+        String token = bundle.getString("token");
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\n  \"ids\": "+id+"\n}");
         Request request = new Request.Builder()
