@@ -1,6 +1,7 @@
 package com.naman.shiprocket.DashboardItems.orders;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ public class seeMoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_more);
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         TextView bpaymentStatus, bpaymentmethod, bcreatedAt, bUpdatedAt, bproductId , baddress;
         Button btn ;
 

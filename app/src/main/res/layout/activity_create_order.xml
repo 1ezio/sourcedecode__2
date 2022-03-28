@@ -35,6 +35,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
+
             <EditText
                 android:layout_width="350dp"
                 android:layout_height="45dp"
@@ -44,9 +45,21 @@
                 android:hint="Enter Order ID"
                 android:background="@drawable/ed_bg2"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel Order?"
+                android:id="@+id/cancelOrderID"
+                android:layout_gravity="right"
+                android:textColor="@color/black"
+                android:layout_marginRight="20dp"
+                />
+
             <EditText
                 android:layout_width="350dp"
                 android:padding="5dp"
+
                 android:id="@+id/cname"
                 android:layout_height="45dp"
                 android:layout_margin="5dp"

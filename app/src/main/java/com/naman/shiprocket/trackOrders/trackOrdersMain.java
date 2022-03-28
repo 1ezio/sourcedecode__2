@@ -2,6 +2,7 @@ package com.naman.shiprocket.trackOrders;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,8 +33,10 @@ import java.util.concurrent.ExecutionException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class trackOrdersMain extends AppCompatActivity {
@@ -43,8 +47,7 @@ public class trackOrdersMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_orders_main);
-
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         tName = findViewById(R.id.tname);
         tphone =findViewById(R.id.tphn);
         tProductname = findViewById(R.id.tpname);
@@ -106,6 +109,8 @@ public class trackOrdersMain extends AppCompatActivity {
 
 
                             try {
+                                LinearLayout linearLayout = findViewById(R.id.linearLayoutSee);
+                                linearLayout.setVisibility(View.VISIBLE);
                                 JSONObject obj = new JSONObject(jsonResponse);
                                 JSONObject jsonObject = (obj.getJSONObject("data"));
                                 ArrayList<ordersDAO> arrayList = new ArrayList<>();
@@ -123,13 +128,6 @@ public class trackOrdersMain extends AppCompatActivity {
                                 String tpick = jsonObject.has("pickup_boy_name")? jsonObject.getString("pickup_boy_name"):"Not Available";
                                 tPickname.setText(tpick);
                                 tPickContact.setText(jsonObject.has("pickup_boy_contact")? jsonObject.getString("pickup_boy_contact"):"Not Available");
-//                                try{
-//
-//                                }catch (Exception e){
-//                                    tStatus.setText("Not Available");
-//                                    tPickname.setText("Not Available");
-//                                    tPickContact.setText("Not Available");
-//                                }
 
                                 String cusPayStatus = jsonObject.getString("payment_status");
                                 String cusCreated = jsonObject.getString("created_at");
@@ -141,18 +139,14 @@ public class trackOrdersMain extends AppCompatActivity {
                                 for(int j = 0;j< list.length;j++){
                                     String str = list[j];
                                     String[] arr1 = str.split(":");
-                                    //Log.d("TAG", String.valueOf(arr1.length));
-                                    //Toast.makeText(OrdersList.this, str, Toast.LENGTH_SHORT).show();
+
                                     try{
                                         productMap.put(arr1[0].substring( 1,arr1[0].length() - 1 )
                                                 , arr1[1]);
                                     }catch (Exception e ){
-                                        //map.put(arr1[0], "NA");
+                                        Toast.makeText(trackOrdersMain.this, "Error !!", Toast.LENGTH_SHORT).show();
                                     }
-
-
                                 }
-                                Toast.makeText(trackOrdersMain.this, String.valueOf(productMap), Toast.LENGTH_SHORT).show();
                                 tProductname.setText(productMap.get("name"));
                                 tTotal.setText(productMap.get("price"));
                                 String shipmentDetails = jsonObject.getString("shipments");
@@ -167,10 +161,8 @@ public class trackOrdersMain extends AppCompatActivity {
                                         shipmentMap.put(arr1[0].substring( 1,arr1[0].length() - 1 )
                                                 , arr1[1]);
                                     }catch (Exception e ){
-                                        //map.put(arr1[0], "NA");
+                                        Toast.makeText(trackOrdersMain.this, "Error !!", Toast.LENGTH_SHORT).show();
                                     }
-
-
                                 }
 
                                 tExecutiveName.setText(shipmentMap.get("delivery_executive_name"));
@@ -179,12 +171,6 @@ public class trackOrdersMain extends AppCompatActivity {
 
                                 
                                 progress.dismiss();
-                                
-                                
-//                                for (int i = 0; i < arr.length(); i++)
-//                                {
-//                                    
-//                                }
 
 
                             } catch (JSONException e) {
@@ -205,7 +191,6 @@ public class trackOrdersMain extends AppCompatActivity {
             }
         });
         progress.dismiss();
-
 
     }
 

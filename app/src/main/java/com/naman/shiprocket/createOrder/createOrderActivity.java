@@ -1,12 +1,16 @@
 package com.naman.shiprocket.createOrder;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.naman.shiprocket.Dashboard;
@@ -28,11 +32,12 @@ import okhttp3.Response;
 
 public class createOrderActivity extends AppCompatActivity {
 
+    String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_order);
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         EditText cName, cProductName, cPhone,
                 cAddr1, cAddr2, cCity, cState, cCountry, cPin ,cId;
@@ -88,6 +93,18 @@ public class createOrderActivity extends AppCompatActivity {
         cPin.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 
+        TextView textView = findViewById(R.id.cancelOrderID);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (cId.getText().toString().equals(null)){
+                    Toast.makeText(createOrderActivity.this, "Enter Order ID", Toast.LENGTH_SHORT).show();
+                }else{
+                    deleteOrder(cId.getText().toString());
+                }
+            }
+        });
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +112,7 @@ public class createOrderActivity extends AppCompatActivity {
                 try{
 
                     Bundle bundle = getIntent().getExtras();
-                    String token = bundle.getString("token");
+                    token = bundle.getString("token");
 
                     String sName = cName.getText().toString();
                     String spname = cProductName.getText().toString();
@@ -178,6 +195,47 @@ public class createOrderActivity extends AppCompatActivity {
         });
 
 
+
+    }
+    public void deleteOrder(String id){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\n  \"ids\": "+id+"\n}");
+        Request request = new Request.Builder()
+                .url("https://apiv2.shiprocket.in/v1/external/orders/cancel")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer "+token)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String jsonResponse = response.body().string();
+                if(response.isSuccessful()){
+                    createOrderActivity.this.runOnUiThread(new Runnable() {
+                        @RequiresApi(api = Build.VERSION_CODES.N)
+                        @Override
+                        public void run() {
+                            Toast.makeText(createOrderActivity.this, "Order Cancelled", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    createOrderActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(createOrderActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
 
     }
 }

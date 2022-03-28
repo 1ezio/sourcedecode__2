@@ -18,10 +18,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/open_sans_bold"
             android:text="WELCOME,"
             android:layout_marginLeft="45dp"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="15sp"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +30,7 @@
         <TextView
             android:id="@+id/nameInDashboard"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/open_sans_condensed_bold"
             android:layout_height="wrap_content"
             android:layout_marginLeft="45dp"
             android:layout_marginTop="5dp"
@@ -87,6 +89,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Orders"
+
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -118,7 +123,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:text="Track Order"
                         android:textSize="15sp" />
 
@@ -159,8 +165,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:text="Create Order"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="Modify / Create"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -194,7 +201,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:text="Map Tracking"
                         android:textSize="15sp" />
 
@@ -247,7 +255,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:text="Graphs"
                     android:textSize="15sp" />
 

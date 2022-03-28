@@ -2,6 +2,7 @@ package com.naman.shiprocket.graphs;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -39,6 +40,7 @@ public class graphActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         final ProgressDialogFragment progress=new ProgressDialogFragment(this);
         progress.show();
         Bundle bundle = getIntent().getExtras();

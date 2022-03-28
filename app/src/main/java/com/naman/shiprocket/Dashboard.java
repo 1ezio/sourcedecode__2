@@ -1,6 +1,7 @@
 package com.naman.shiprocket;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -28,7 +29,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         Bundle bundle = getIntent().getExtras();
         String jsonResponse = bundle.getString("jsonResponse");
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         Map jsonValueMap = new Gson().fromJson(jsonResponse, Map.class);
         TextView nameInDashboard = (TextView) findViewById(R.id.nameInDashboard);
         String name =jsonValueMap.get("first_name")+ " "+ jsonValueMap.get("last_name");
@@ -37,7 +38,6 @@ public class Dashboard extends AppCompatActivity {
         nameInDashboard.setTranslationY(1000);
         nameInDashboard.setAlpha(0);
         nameInDashboard.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-
 
         String token = Objects.requireNonNull(jsonValueMap.get("token")).toString();
 
