@@ -172,18 +172,6 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                 }
             }
         });
-
-
-
-
-
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-
-
-
-
-
     }
 
 

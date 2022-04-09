@@ -170,8 +170,8 @@ public class createOrderActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     //Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(createOrderActivity.this, "Order Created", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(createOrderActivity.this, createOrderActivity.class));
+                                    Toast.makeText(createOrderActivity.this, "Order Created / Updated", Toast.LENGTH_SHORT).show();
+                                    updateOrder(sid,sName,saddr1,saddr2,scity,spin,scountry,sphone,spname,sstate);
                                 }
                             });
                         }else{
@@ -186,7 +186,7 @@ public class createOrderActivity extends AppCompatActivity {
                 });
 
 
-                }catch(Exception e){
+                }catch(ArithmeticException e){
                     Toast.makeText(createOrderActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(createOrderActivity.this, createOrderActivity.class));
                 }
@@ -205,7 +205,7 @@ public class createOrderActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String token = bundle.getString("token");
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n  \"ids\": "+id+"\n}");
+        RequestBody body = RequestBody.create(mediaType, "{\n  \"ids\": ["+id+"]\n}");
         Request request = new Request.Builder()
                 .url("https://apiv2.shiprocket.in/v1/external/orders/cancel")
                 .method("POST", body)
@@ -228,6 +228,7 @@ public class createOrderActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Toast.makeText(createOrderActivity.this, "Order Cancelled", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(createOrderActivity.this,createOrderActivity.class));
                         }
                     });
                 }else{
@@ -242,4 +243,67 @@ public class createOrderActivity extends AppCompatActivity {
         });
 
     }
+
+    public void updateOrder(String sid, String sName,String saddr1,String saddr2,String scity, String spin,String scountry,String sphone,String spname,String sstate ){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        Bundle bundle = getIntent().getExtras();
+        String token = bundle.getString("token");
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\n  \"order_id\": \""+sid+"\"" +
+                ",\n  \"order_date\": \"2022-07-24 11:11\",\n  \"pickup_location\": \"Jammu\"," +
+                "\n  \"channel_id\": \"\",\n  \"comment\": \"Reseller: M/s Goku\"," +
+                "\n  \"billing_customer_name\": \"" + sName+ "\",\n  \"billing_last_name\": \"Uzumaki\"" +
+                ",\n  \"billing_address\": \" "+ saddr1 +" \",\n  \"billing_address_2\": \" "+saddr2+" \"," +
+                "\n  \"billing_city\": \""+scity+"\",\n  \"billing_pincode\": \""+spin+"\",\n  \"billing_state\": \""+sstate+"\"" +
+                ",\n  \"billing_country\": \""+scountry+"\",\n  \"billing_email\": \"naruto@uzumaki.com\",\n  \"billing_phone\": \""+sphone+"\"," +
+                "\n  \"shipping_is_billing\": true,\n  \"shipping_customer_name\": \"\",\n  \"shipping_last_name\": \"\"," +
+                "\n  \"shipping_address\": \"\",\n  \"shipping_address_2\": \"\",\n  \"shipping_city\": \"\"," +
+                "\n  \"shipping_pincode\": \"\",\n  \"shipping_country\": \"\",\n  \"shipping_state\": \"\",\n  \"shipping_email\": \"\"" +
+                ",\n  \"shipping_phone\": \"\",\n  \"order_items\": [\n    {\n      \"name\": \""+spname+"\",\n      \"sku\": \"chakra123\"," +
+                "\n      \"units\": 10,\n      \"selling_price\": \"900\",\n      \"discount\": \"\",\n      \"tax\": \"\"," +
+                "\n      \"hsn\": 441122\n    }\n  ],\n  \"payment_method\": \"Prepaid\"," +
+                "\n  \"shipping_charges\": 0,\n  \"giftwrap_charges\": 0,\n  \"transaction_charges\": 0," +
+                "\n  \"total_discount\": 0,\n  \"sub_total\": 9000,\n  \"length\": 10,\n  \"breadth\": 15,\n  \"height\": 20," +
+                "\n  \"weight\": 2.5\n}");
+        Request request = new Request.Builder()
+                .url("https://apiv2.shiprocket.in/v1/external/orders/update/adhoc")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer "+token)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String jsonResponse = response.body().string();
+                if(response.isSuccessful()){
+
+                    createOrderActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(createOrderActivity.this,createOrderActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        }
+                    });
+                }else{
+                    createOrderActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(createOrderActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
+    }
+
 }
+

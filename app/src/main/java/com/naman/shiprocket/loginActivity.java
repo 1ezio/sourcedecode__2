@@ -2,6 +2,7 @@ package com.naman.shiprocket;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,20 +37,31 @@ public class loginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         EditText userName = (EditText) findViewById(R.id.userName);
+        TextInputLayout textInputLayout3= findViewById(R.id.textInputLayout3);
+        TextInputLayout textInputLayout4= findViewById(R.id.textInputLayout4);
         EditText password = (EditText) findViewById(R.id.password);
         Button btn = (Button) findViewById(R.id.loginbtn);
-
-        userName.setTranslationX(800);
-        password.setTranslationX(800);
-        btn.setTranslationX(800);
-
-        userName.setAlpha(0);
-        password.setAlpha(0);
-        btn.setAlpha(0);
-
-        userName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        password.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+        ConstraintLayout viewpager = findViewById(R.id.viewpager);
+        viewpager.setTranslationY(800);
+        viewpager.setAlpha(0);
+        viewpager.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        textInputLayout3.setTranslationX(800);
+//        textInputLayout4.setTranslationX(800);
+//        password.setTranslationX(800);
+//        userName.setTranslationX(800);
+//        btn.setTranslationX(800);
+//
+//        textInputLayout3.setAlpha(0);
+//        textInputLayout4.setAlpha(0);
+//        userName.setAlpha(0);
+//        password.setAlpha(0);
+//        btn.setAlpha(0);
+//
+//        textInputLayout3.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        textInputLayout4.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        userName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        password.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,11 +124,13 @@ public class loginActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Toast.makeText(loginActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
+                            lottie.dismiss();
                         }
                     });
                 }
             }
         });
+
     }
 
 

@@ -22,18 +22,19 @@
 
     <TextView
         android:id="@+id/bid"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+
         android:layout_marginTop="10dp"
         android:layout_marginBottom="2dp"
         android:layout_toRightOf="@+id/textView"
         android:gravity="center_vertical"
         android:text="Buyer ID"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView"
@@ -50,8 +51,6 @@
 
     <TextView
         android:id="@+id/bname"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bid"
@@ -62,7 +61,9 @@
         android:layout_toRightOf="@+id/textView"
         android:gravity="center_vertical"
         android:text="Buyer Name"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 
     <TextView
@@ -97,9 +98,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
 
-        android:textColor="@color/black"
         android:layout_marginBottom="2dp"
-        android:text="Buyer Phone :" />
+        android:text="Buyer Phone :"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/btotal"
@@ -165,6 +166,7 @@
 
 
     <LinearLayout
+        android:id="@+id/lr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btotal"
@@ -180,8 +182,168 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp"
             android:clickable="true"
-            android:text="see more >>"
+            android:text="see more.."
             android:textColor="#FFE4960B" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:animateLayoutChanges="true"
+        android:id="@+id/lr2"
+        android:layout_alignTop="@id/lr"
+        android:layout_alignBottom="@id/relativeLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product ID : "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bProductId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NA"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="Payment Method : "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="NA"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Status : "
+
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bPaymentStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NA"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Created at : "
+
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bCreatedat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NA"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Updated at : "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bUpdatedat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NA"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer  Address : "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bCustomerAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NA"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
