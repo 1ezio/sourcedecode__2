@@ -54,7 +54,7 @@ public class graphActivity extends AppCompatActivity {
                 .addHeader("Authorization", "Bearer "+token)
                 .build();
         HashMap<String, Integer> map = new HashMap<>();
-                client.newCall(request).enqueue(new Callback() {
+        client.newCall(request).enqueue(new Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {
@@ -79,7 +79,7 @@ public class graphActivity extends AppCompatActivity {
 
                                 for (int i = 0; i < arr.length(); i++){
                                     String status = arr.getJSONObject(i).getString("status");
-                                     map.put(status,  Integer.valueOf(map.getOrDefault(status,0))+1) ;
+                                    map.put(status,  Integer.valueOf(map.getOrDefault(status,0))+1) ;
                                 }
 
 

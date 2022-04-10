@@ -13,6 +13,7 @@
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_create_order.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_dashboard.xml" value="0.152" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_graph.xml" value="0.1875" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_graph_new.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_login.xml" value="0.176" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_orders_list.xml" value="0.2359375" />
@@ -20,6 +21,8 @@
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_track_orders_main.xml" value="0.264" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_tracking.xml" value="0.128515625" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/fragment_delivery.xml" value="0.1875" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/fragment_map.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/loginfragment.xml" value="0.17578125" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/mapmarker.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/meesagebot.xml" value="0.1875" />

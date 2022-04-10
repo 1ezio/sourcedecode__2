@@ -16,6 +16,7 @@ import com.naman.shiprocket.DashboardItems.orders.OrdersList;
 import com.naman.shiprocket.TrackingWithMap.Tracking;
 import com.naman.shiprocket.chatbot.botActivity;
 import com.naman.shiprocket.createOrder.createOrderActivity;
+import com.naman.shiprocket.graphs.GraphNewActivity;
 import com.naman.shiprocket.graphs.graphActivity;
 import com.naman.shiprocket.trackOrders.trackOrdersMain;
 
@@ -105,7 +106,7 @@ public class Dashboard extends AppCompatActivity {
         graphCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Dashboard.this, graphActivity.class);
+                Intent intent = new Intent(Dashboard.this, GraphNewActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
             }
