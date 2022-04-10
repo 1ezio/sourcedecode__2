@@ -16,8 +16,12 @@
         android:icon="@drawable/delivery"
         android:label="@string/app_name"
         android:roundIcon="@drawable/delivery"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShipRocket">
+        <activity
+            android:name=".chatbot.botActivity"
+            android:exported="false" />
         <activity
             android:name=".createOrder.createOrderActivity"
             android:exported="true" />

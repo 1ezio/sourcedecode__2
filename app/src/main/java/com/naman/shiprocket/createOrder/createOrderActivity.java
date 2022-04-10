@@ -3,6 +3,7 @@ package com.naman.shiprocket.createOrder;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.naman.shiprocket.Dashboard;
 import com.naman.shiprocket.ProgressDialogFragment;
 import com.naman.shiprocket.R;
@@ -43,7 +45,8 @@ public class createOrderActivity extends AppCompatActivity {
 
         EditText cName, cProductName, cPhone,
                 cAddr1, cAddr2, cCity, cState, cCountry, cPin ,cId;
-
+        TextInputLayout tl1 = findViewById(R.id.cnamei);
+        ConstraintLayout cl1 = findViewById(R.id.cl1);
         cName = findViewById(R.id.cname);
         cProductName = findViewById(R.id.cpname);
         cPhone = findViewById(R.id.cphn);
@@ -57,43 +60,46 @@ public class createOrderActivity extends AppCompatActivity {
 
         Button btn = findViewById(R.id.btnId);
         //cId.setTranslationY(800);
-        cName.setTranslationX(800);
-        cProductName.setTranslationX(-800);
-        cPhone.setTranslationX(800);
-        cAddr1.setTranslationX(-800);
-        cAddr2.setTranslationX(800);
-        cCity.setTranslationX(-800);
-        cState.setTranslationX(800);
-        cCountry.setTranslationX(-800);
-        cPin.setTranslationX(800);
-
-        btn.setTranslationX(-800);
+        cl1.setTranslationY(800);
+//        cName.setTranslationX(800);
+//        cProductName.setTranslationX(-800);
+//        cPhone.setTranslationX(800);
+//        cAddr1.setTranslationX(-800);
+//        cAddr2.setTranslationX(800);
+//        cCity.setTranslationX(-800);
+//        cState.setTranslationX(800);
+//        cCountry.setTranslationX(-800);
+//        cPin.setTranslationX(800);
+//
+//        btn.setTranslationX(-800);
 
 
         //cId.setAlpha(0);
-        cName.setAlpha(0);
-        cProductName.setAlpha(0);
-        cPhone.setAlpha(0);
-        cAddr1.setAlpha(0);
-        cAddr2.setAlpha(0);
-        cCity.setAlpha(0);
-        cState.setAlpha(0);
-        cCountry.setAlpha(0);
-        cPin.setAlpha(0);
-
-        btn.setAlpha(0);
+        cl1.setAlpha(0);
+//        cName.setAlpha(0);
+//        cProductName.setAlpha(0);
+//        cPhone.setAlpha(0);
+//        cAddr1.setAlpha(0);
+//        cAddr2.setAlpha(0);
+//        cCity.setAlpha(0);
+//        cState.setAlpha(0);
+//        cCountry.setAlpha(0);
+//        cPin.setAlpha(0);
+//
+//        btn.setAlpha(0);
 
         //cId.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cProductName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cPhone.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cAddr1.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cAddr2.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cCity.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cState.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cCountry.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        cPin.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+        cl1.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cProductName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cPhone.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cAddr1.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cAddr2.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cCity.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cState.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cCountry.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        cPin.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+//        btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 
         TextView textView = findViewById(R.id.cancelOrderID);
         textView.setOnClickListener(new View.OnClickListener() {

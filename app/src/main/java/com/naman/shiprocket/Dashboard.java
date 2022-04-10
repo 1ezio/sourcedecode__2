@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.naman.shiprocket.DashboardItems.orders.OrdersList;
 import com.naman.shiprocket.TrackingWithMap.Tracking;
+import com.naman.shiprocket.chatbot.botActivity;
 import com.naman.shiprocket.createOrder.createOrderActivity;
 import com.naman.shiprocket.graphs.graphActivity;
 import com.naman.shiprocket.trackOrders.trackOrdersMain;
@@ -22,7 +23,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Dashboard extends AppCompatActivity {
-
+    String token ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,7 @@ public class Dashboard extends AppCompatActivity {
         nameInDashboard.setAlpha(0);
         nameInDashboard.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 
-        String token = Objects.requireNonNull(jsonValueMap.get("token")).toString();
+        token = Objects.requireNonNull(jsonValueMap.get("token")).toString();
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
         layout.setTranslationY(1000);
@@ -129,5 +130,11 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
+    }
+
+    public void openChat(View view) {
+        Intent intent = new Intent(Dashboard.this, botActivity.class);
+        intent.putExtra("token", token);
+        startActivity(intent);
     }
 }

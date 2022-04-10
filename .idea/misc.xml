@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/buttonbg.xml" value="0.187890625" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/ed_bg.xml" value="0.187890625" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/drawable/ed_bg2.xml" value="0.187890625" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_bot.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_create_order.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_dashboard.xml" value="0.152" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_graph.xml" value="0.1875" />
@@ -21,8 +22,12 @@
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/activity_tracking.xml" value="0.128515625" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/loginfragment.xml" value="0.17578125" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/mapmarker.xml" value="0.1875" />
-        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/orderitemsrecyclerview.xml" value="0.2" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/meesagebot.xml" value="0.1875" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/messagebot.xml" value="0.1875" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/messagesfile.xml" value="0.1875" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/orderitemsrecyclerview.xml" value="0.4" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/progressdialog.xml" value="0.1875" />
+        <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/xml/network_security_config.xml" value="0.1875" />
       </map>
     </option>
   </component>
