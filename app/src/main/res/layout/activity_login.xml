@@ -73,6 +73,8 @@
                 android:layout_width="match_parent"
                 android:id="@+id/userName"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:inputType="text"
                 android:hint="Email" />
 
 
