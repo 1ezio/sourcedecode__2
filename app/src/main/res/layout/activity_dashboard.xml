@@ -278,14 +278,20 @@
 
         </LinearLayout>
 
-        <Button
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+
+            android:adjustViewBounds="true"
             android:onClick="openChat"
+            android:scaleType="fitCenter"
+            android:src="@drawable/floatbutton"
+
             android:text="chat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/linearLayout3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--    <androidx.cardview.widget.CardView-->
