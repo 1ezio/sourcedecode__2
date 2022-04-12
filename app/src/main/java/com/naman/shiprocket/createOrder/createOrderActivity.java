@@ -57,49 +57,13 @@ public class createOrderActivity extends AppCompatActivity {
         cCountry = findViewById(R.id.ccountry);
         cPin = findViewById(R.id.cpin);
         cId = findViewById(R.id.ccid);
-
+        Button updateButton = findViewById(R.id.updateId);
         Button btn = findViewById(R.id.btnId);
         //cId.setTranslationY(800);
         cl1.setTranslationY(800);
-//        cName.setTranslationX(800);
-//        cProductName.setTranslationX(-800);
-//        cPhone.setTranslationX(800);
-//        cAddr1.setTranslationX(-800);
-//        cAddr2.setTranslationX(800);
-//        cCity.setTranslationX(-800);
-//        cState.setTranslationX(800);
-//        cCountry.setTranslationX(-800);
-//        cPin.setTranslationX(800);
-//
-//        btn.setTranslationX(-800);
 
-
-        //cId.setAlpha(0);
         cl1.setAlpha(0);
-//        cName.setAlpha(0);
-//        cProductName.setAlpha(0);
-//        cPhone.setAlpha(0);
-//        cAddr1.setAlpha(0);
-//        cAddr2.setAlpha(0);
-//        cCity.setAlpha(0);
-//        cState.setAlpha(0);
-//        cCountry.setAlpha(0);
-//        cPin.setAlpha(0);
-//
-//        btn.setAlpha(0);
-
-        //cId.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         cl1.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cProductName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cPhone.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cAddr1.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cAddr2.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cCity.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cState.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cCountry.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        cPin.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-//        btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 
         TextView textView = findViewById(R.id.cancelOrderID);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +77,24 @@ public class createOrderActivity extends AppCompatActivity {
             }
         });
 
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String sName = cName.getText().toString();
+                String spname = cProductName.getText().toString();
+                String sphone = cPhone.getText().toString();
+                String saddr1 = cAddr1.getText().toString();
+                String saddr2 = cAddr2.getText().toString();
+                String scity = cCity.getText().toString();
+                String sstate = cState.getText().toString();
+                String scountry = cCountry.getText().toString();
+                String spin = cPin.getText().toString();
+                String sid = cId.getText().toString();
+
+                updateOrder(sid,sName,saddr1,saddr2,scity,spin,scountry,sphone,spname,sstate);
+            }
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,7 +159,7 @@ public class createOrderActivity extends AppCompatActivity {
                                 public void run() {
                                     //Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
                                     Toast.makeText(createOrderActivity.this, "Order Created / Updated", Toast.LENGTH_SHORT).show();
-                                    updateOrder(sid,sName,saddr1,saddr2,scity,spin,scountry,sphone,spname,sstate);
+
                                 }
                             });
                         }else{
@@ -294,6 +276,7 @@ public class createOrderActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             //Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(createOrderActivity.this, "Order Updated", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(createOrderActivity.this,createOrderActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);

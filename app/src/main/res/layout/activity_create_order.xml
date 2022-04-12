@@ -210,16 +210,36 @@ android:layout_marginRight="20dp"
                      />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <Button
-                android:id="@+id/btnId"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/buttonbg"
-                android:text="Submit" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
 
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/updateId"
+                    android:background="@drawable/buttonbg"
+                    android:layout_marginRight="10dp"
+                    android:text="Update"/>
+
+
+                <Button
+                    android:id="@+id/btnId"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/buttonbg"
+                    android:text="create" />
+
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
