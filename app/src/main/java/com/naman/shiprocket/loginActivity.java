@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,12 @@ import okhttp3.Response;
 
 public class loginActivity extends AppCompatActivity {
 
+    SharedPreferences sharedPreferences ;
+
+    String sharedPreName = "sharedPreName";
+    String email= "email";
+    String passwords = "password";
+    String tokenPre = "token";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +49,27 @@ public class loginActivity extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.password);
         Button btn = (Button) findViewById(R.id.loginbtn);
         ConstraintLayout viewpager = findViewById(R.id.viewpager);
+
+        sharedPreferences = getSharedPreferences(sharedPreName, MODE_PRIVATE);
+
+        String preName = sharedPreferences.getString(email, null);
+        if(preName!=null){
+            Intent intent =new Intent(loginActivity.this, Dashboard.class);
+            intent.putExtra("jsonResponse", sharedPreferences.getString(tokenPre, null));
+            startActivity(intent);
+
+        }
+
+
         viewpager.setTranslationY(800);
         viewpager.setAlpha(0);
         viewpager.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+
+
+
+
+
 //        textInputLayout3.setTranslationX(800);
 //        textInputLayout4.setTranslationX(800);
 //        password.setTranslationX(800);
@@ -62,6 +87,10 @@ public class loginActivity extends AppCompatActivity {
 //        btn.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 //        userName.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
 //        password.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+
+
+
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +142,12 @@ public class loginActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                            //Toast.makeText(loginActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
+
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString(email, username);
+                            editor.putString(passwords, password);
+                            editor.putString(tokenPre, jsonResponse);
+                            editor.apply();
                             Intent intent = new Intent(loginActivity.this, Dashboard.class);
                             intent.putExtra("jsonResponse", jsonResponse);
                             lottie.dismiss();

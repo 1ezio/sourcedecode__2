@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,17 +27,40 @@ import java.util.Objects;
 
 public class Dashboard extends AppCompatActivity {
     String token ;
+    SharedPreferences sharedPreferences ;
+
+    String sharedPreName = "sharedPreName";
+    String email= "email";
+    String passwords = "password";
+    String tokenPre = "token";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         Bundle bundle = getIntent().getExtras();
         String jsonResponse = bundle.getString("jsonResponse");
+
+        sharedPreferences = getSharedPreferences(sharedPreName , MODE_PRIVATE);
+        if (jsonResponse==null){
+            jsonResponse= sharedPreferences.getString(tokenPre, null);
+        }
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         Map jsonValueMap = new Gson().fromJson(jsonResponse, Map.class);
         TextView nameInDashboard = (TextView) findViewById(R.id.nameInDashboard);
         String name =jsonValueMap.get("first_name")+ " "+ jsonValueMap.get("last_name");
         nameInDashboard.setText(name);
+        ImageView imageView = findViewById(R.id.logout);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               SharedPreferences.Editor editor= sharedPreferences.edit();
+               editor.clear();
+               editor.commit();
+               finish();
+
+            }
+        });
 
         nameInDashboard.setTranslationY(1000);
         nameInDashboard.setAlpha(0);
