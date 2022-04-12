@@ -32,11 +32,10 @@
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/orderitemsrecyclerview.xml" value="0.4" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/layout/progressdialog.xml" value="0.1875" />
         <entry key="..\:/Users/Naman Mehra/AndroidStudioProjects/shipRocket/app/src/main/res/xml/network_security_config.xml" value="0.1875" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2418478260869565" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
