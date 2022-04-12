@@ -53,7 +53,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
 
     private List<LatLng> latlongList = new ArrayList<>() ;
 
-    private String cusName,cusPhn,cuspayMethod,cusAddress ;
+    private String cusName,cusPhn,cuspayMethod,cusAddress,cusAdd2Show ;
     ArrayList<mapMarkerDAO> arrayList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +109,9 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                     cuspayMethod = arr.getJSONObject(i).getString("payment_method");
                                         cusAddress = arr.getJSONObject(i).getString("customer_city") +
                                                 " "+ arr.getJSONObject(i).getString("customer_state") ;
+                                    cusAdd2Show =arr.getJSONObject(i).getString("customer_address")+" " + arr.getJSONObject(i).getString("customer_address_2")+" "+
+                                            arr.getJSONObject(i).getString("customer_city") +
+                                            " "+ arr.getJSONObject(i).getString("customer_state") ;
                                         mapLists.add(cusAddress);
                                     String total = arr.getJSONObject(i).getString("total");
                                     productDetails = productDetails.substring( 2,productDetails.length() - 2 );
@@ -125,7 +128,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
                                         }
                                     }
                                     arrayList.add(new mapMarkerDAO(cusName, cusPhn,cuspayMethod,cusAddress,
-                                            productMap.get("name"),total));
+                                            productMap.get("name"),total,cusAdd2Show));
 
                                 }
                                 List<Address> addressList = null;
@@ -194,7 +197,7 @@ public class Tracking extends FragmentActivity implements OnMapReadyCallback {
             String phn = arrayList.get(i).getCusPhn();
             String method = arrayList.get(i).getCuspayMethod();
             String total = arrayList.get(i).getCusTotal();
-            String address = arrayList.get(i).getCusAddress();
+            String address = arrayList.get(i).getCusAdd2Show();
             String cusProductName = arrayList.get(i).getCusProductName();
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
 

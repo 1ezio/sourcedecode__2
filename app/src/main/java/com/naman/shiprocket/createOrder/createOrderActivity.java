@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.Gson;
 import com.naman.shiprocket.Dashboard;
 import com.naman.shiprocket.ProgressDialogFragment;
 import com.naman.shiprocket.R;
@@ -25,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -51,7 +54,7 @@ public class createOrderActivity extends AppCompatActivity {
         cProductName = findViewById(R.id.cpname);
         cPhone = findViewById(R.id.cphn);
         cAddr1 = findViewById(R.id.caddr1);
-        cAddr2 = findViewById(R.id.caddr2);
+        //cAddr2 = findViewById(R.id.caddr2);
         cCity = findViewById(R.id.ccity);
         cState = findViewById(R.id.cstate);
         cCountry = findViewById(R.id.ccountry);
@@ -85,7 +88,7 @@ public class createOrderActivity extends AppCompatActivity {
                 String spname = cProductName.getText().toString();
                 String sphone = cPhone.getText().toString();
                 String saddr1 = cAddr1.getText().toString();
-                String saddr2 = cAddr2.getText().toString();
+                String saddr2 = ""; //cAddr2.getText().toString();
                 String scity = cCity.getText().toString();
                 String sstate = cState.getText().toString();
                 String scountry = cCountry.getText().toString();
@@ -101,14 +104,28 @@ public class createOrderActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 try{
-
+                    final ProgressDialogFragment lottie=new ProgressDialogFragment(view.getContext());
+                    lottie.show();
+                    String token;
                     Bundle bundle = getIntent().getExtras();
-                    String token = bundle.getString("token");
+                    try{
+
+                         token = bundle.getString("token");
+                    }catch(Exception e){
+
+                        SharedPreferences sharedPreferences ;
+                        sharedPreferences = getSharedPreferences("sharedPreName" , MODE_PRIVATE);
+                        String jsonResponse= sharedPreferences.getString("token", null);
+                        Map jsonValueMap = new Gson().fromJson(jsonResponse, Map.class);
+                        token= String.valueOf(jsonValueMap.get("token"));
+
+                    }
+
                     String sName = cName.getText().toString();
                     String spname = cProductName.getText().toString();
                     String sphone = cPhone.getText().toString();
                     String saddr1 = cAddr1.getText().toString();
-                    String saddr2 = cAddr2.getText().toString();
+                    String saddr2 = "";//cAddr2.getText().toString();
                     String scity = cCity.getText().toString();
                     String sstate = cState.getText().toString();
                     String scountry = cCountry.getText().toString();
@@ -159,7 +176,7 @@ public class createOrderActivity extends AppCompatActivity {
                                 public void run() {
                                     //Toast.makeText(createOrderActivity.this, String.valueOf(jsonResponse), Toast.LENGTH_SHORT).show();
                                     Toast.makeText(createOrderActivity.this, "Order Created / Updated", Toast.LENGTH_SHORT).show();
-
+                                    lottie.dismiss();
                                 }
                             });
                         }else{
@@ -167,7 +184,9 @@ public class createOrderActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Toast.makeText(createOrderActivity.this, "Ok: "+jsonResponse,Toast.LENGTH_SHORT).show();
+                                    lottie.dismiss();
                                 }
+
                             });
                         }
                     }
@@ -176,7 +195,7 @@ public class createOrderActivity extends AppCompatActivity {
 
                 }catch(ArithmeticException e){
                     Toast.makeText(createOrderActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(createOrderActivity.this, createOrderActivity.class));
+                        startActivity(new Intent(createOrderActivity.this, createOrderActivity.class));
                 }
 
 

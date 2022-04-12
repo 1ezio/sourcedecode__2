@@ -18,6 +18,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.naman.shiprocket.DashboardItems.orders.OrdersList;
 import com.naman.shiprocket.DashboardItems.orders.ordersAdapter;
 import com.naman.shiprocket.DashboardItems.orders.ordersDAO;
 import com.naman.shiprocket.ProgressDialogFragment;
@@ -114,7 +115,6 @@ public class botActivity extends AppCompatActivity {
                         }
                     }
 
-                    Toast.makeText(botActivity.this, sb.toString(), Toast.LENGTH_SHORT).show();
                     Bundle bundle = getIntent().getExtras();
                     String token = bundle.getString("token");
                     if (sb.length()>0){
@@ -234,6 +234,13 @@ public class botActivity extends AppCompatActivity {
                         startActivity(intent);
 
 
+                    }
+                    else if(cnt.equals("Redirecting you to all orders")){
+                        messageModelArrayList.add(new messageModel(model.getCnt(), BOT_KEY));
+                        messageRVAdapter.notifyDataSetChanged();
+                        Intent intent =new Intent(botActivity.this, OrdersList.class);
+                        intent.putExtra("token", token);
+                        startActivity(intent);
                     }
                     else{
                         messageModelArrayList.add(new messageModel(model.getCnt()+sb, BOT_KEY));

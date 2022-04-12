@@ -88,7 +88,8 @@ public class OrdersList extends AppCompatActivity {
                                     String cusUpdated = arr.getJSONObject(i).getString("updated_at");
                                     String cusAddress = arr.getJSONObject(i).getString("customer_city") +
                                             " "+ arr.getJSONObject(i).getString("customer_state") ;
-
+                                    String cusAdd2Show = arr.getJSONObject(i).getString("customer_address")+ " " + arr.getJSONObject(i).getString("customer_address_2")+ " "+arr.getJSONObject(i).getString("customer_city") +
+                                            " "+ arr.getJSONObject(i).getString("customer_state") ;
                                     productDetails = productDetails.substring( 2,productDetails.length() - 2 );
                                     String[] list = productDetails.split(",");
 
@@ -103,7 +104,7 @@ public class OrdersList extends AppCompatActivity {
                                     }
                                     arrayList.add(new ordersDAO(cusName, cusID,cusEmail, cusPhn,cusPayStatus
                                             ,productMap.get("price"),cuspayMethod,cusCreated,cusUpdated,
-                                            productMap.get("id"),productMap.get("name"),"1", cusAddress));
+                                            productMap.get("id"),productMap.get("name"),"1", cusAddress,cusAdd2Show));
 
 
 

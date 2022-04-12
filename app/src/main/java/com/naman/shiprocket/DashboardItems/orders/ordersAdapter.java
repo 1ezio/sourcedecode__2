@@ -72,7 +72,7 @@ public class ordersAdapter extends RecyclerView.Adapter<ordersAdapter.ViewHolder
                     holder.bcreatedAt.setText(ordersDAOS.get(position).getCreatedAt());
                     holder.bUpdatedAt.setText(ordersDAOS.get(position).getUpdatedAt());
                     holder.bproductId.setText(ordersDAOS.get(position).getProductId());
-                    holder.baddress.setText(ordersDAOS.get(position).getAddress());
+                    holder.baddress.setText(ordersDAOS.get(position).getCusAdd2Show());
 
 
                 }else{

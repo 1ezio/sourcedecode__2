@@ -2,7 +2,7 @@ package com.naman.shiprocket.TrackingWithMap;
 
 public class mapMarkerDAO {
 
-    private String cusName,cusPhn,cuspayMethod,cusAddress , cusProductName, cusTotal;
+    private String cusName,cusPhn,cuspayMethod,cusAddress , cusProductName, cusTotal,cusAdd2Show;
 
     public String getCusName() {
         return cusName;
@@ -32,6 +32,14 @@ public class mapMarkerDAO {
         return cusPhn;
     }
 
+    public String getCusAdd2Show() {
+        return cusAdd2Show;
+    }
+
+    public void setCusAdd2Show(String cusAdd2Show) {
+        this.cusAdd2Show = cusAdd2Show;
+    }
+
     public void setCusPhn(String cusPhn) {
         this.cusPhn = cusPhn;
     }
@@ -52,8 +60,9 @@ public class mapMarkerDAO {
         this.cusAddress = cusAddress;
     }
 
-    public mapMarkerDAO(String cusName, String cusPhn, String cuspayMethod, String cusAddress ,String cusProductName,String cusTotal) {
+    public mapMarkerDAO(String cusName, String cusPhn, String cuspayMethod, String cusAddress ,String cusProductName,String cusTotal,String cusAdd2Show) {
         this.cusName = cusName;
+        this.cusAdd2Show = cusAdd2Show;
         this.cusPhn = cusPhn;
         this.cuspayMethod = cuspayMethod;
         this.cusAddress = cusAddress;
