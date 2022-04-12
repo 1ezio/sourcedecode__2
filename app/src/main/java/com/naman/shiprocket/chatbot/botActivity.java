@@ -66,7 +66,7 @@ public class botActivity extends AppCompatActivity {
 
         // creating a new array list
         messageModelArrayList = new ArrayList<>();
-
+        messageModelArrayList.add(new messageModel("Hi, I am BOT! How can I assist you?", BOT_KEY));
         sendMsgIB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,7 +146,7 @@ public class botActivity extends AppCompatActivity {
 
 
                                             try {
-                                                Toast.makeText(botActivity.this, "Inside JSON", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(botActivity.this, "Inside JSON", Toast.LENGTH_SHORT).show();
                                                 JSONObject obj = new JSONObject(jsonResponse);
                                                 JSONObject jsonObject = (obj.getJSONObject("data"));
                                                 ArrayList<ordersDAO> arrayList = new ArrayList<>();
